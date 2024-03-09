@@ -3,11 +3,15 @@ import boto3
 import os
 import streamlit as st
 
-os.environ["AWS_PROFILE"] = "BedrockProj"
+# Environment variables for AWS credentials should be set in your deployment service
+aws_access_key_id = os.getenv('AWS_ACCESS_KEY_ID')
+aws_secret_access_key = os.getenv('AWS_SECRET_ACCESS_KEY')
 
 bedrock_client = boto3.client(
     service_name="bedrock-runtime",
-    region_name="us-west-2"
+    region_name="us-west-2",  # Updated to the correct region based on your previous message
+    aws_access_key_id=aws_access_key_id,
+    aws_secret_access_key=aws_secret_access_key
 )
 
 modelID = "anthropic.claude-3-sonnet-20240229-v1:0"
@@ -21,27 +25,21 @@ llm = BedrockChat(
     }
 )
 
-
 def my_chatbot(freeform_text):
-    # Add "type": "user" to the message (lowercase)
     messages = [
         {
             "role": "user",
             "content": freeform_text,
-            "type": "text",  # Comma added
-        }  # Indentation fixed
+            "type": "text",
+        }
     ]
-
-    # ... rest of the code
-
 
     try:
         response = llm.invoke(messages)
         return response.content
     except Exception as e:
-        print(f"An error occurred: {e}")
+        st.error(f"An error occurred: {e}")
         return "Sorry, I encountered an error. Please try again."
-
 
 st.title("Claude 3 Sonnet Chatbot")
 
