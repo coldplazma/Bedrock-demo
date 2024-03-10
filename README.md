@@ -32,8 +32,8 @@ Through the process of resolving errors and making necessary code modifications,
 
 ## References
 - [Amazon Bedrock](https://aws.amazon.com/bedrock/)
-- [Anthropic Claude](https://www.anthropic.com/claude.html)
+- [Anthropic Claude](https://www.anthropic.com/news/claude-3-family)
 - [Streamlit](https://streamlit.io/)
 - [Langchain](https://github.com/hwchase17/langchain)
-- [Langchain Community](https://github.com/hwchase17/langchain-community)
+- [Langchain Community](https://pypi.org/project/langchain-community/)
 - [Boto3](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html)
