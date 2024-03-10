@@ -1,4 +1,4 @@
-# Bedrock Chatbot YouTube Project
+# Bedrock Chatbot Project
 
 ## Introduction
 The goal of this phase of the project was to create a simple AI chatbot using Amazon Bedrock and the Anthropic Claude 3 Sonnet model. The chatbot would be accessible through a web interface built with the Streamlit library, allowing users to interact with the AI model by asking questions and receiving responses.
