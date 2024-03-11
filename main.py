@@ -39,4 +39,19 @@ def my_chatbot(freeform_text):
         }
     ]
 
-    # Attempt to get a
+    # Attempt to get a response from the chatbot
+    try:
+        response = llm.invoke(messages)
+        return response.content  # Return the model's response
+    except Exception as e:
+        st.error(f"An error occurred: {e}")  # Display error to the user
+        return "Sorry, I encountered an error. Please try again."
+
+# Set up the Streamlit UI elements
+st.title("Claude 3 Sonnet Chatbot")  # Title of the web app
+freeform_text = st.text_area(label="What's your question?", max_chars=100)  # Input area for questions
+
+# Trigger the chatbot function when the user submits a question
+if freeform_text:
+    response = my_chatbot(freeform_text)
+    st.write(response)  # Display the chatbot's response
